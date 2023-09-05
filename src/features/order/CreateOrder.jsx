@@ -102,10 +102,10 @@ function CreateOrder() {
 }
 
 export async function action({ request }) {
-  // console.log(request.formData())
+  // console.log(request)
   const formData = await request.formData();
   const data = Object.fromEntries(formData);
-  // console.log(data);
+  console.log(data);
 
   const order = {
     ...data,
@@ -113,7 +113,7 @@ export async function action({ request }) {
     priority: data.priority === 'on',
   };
 
-  // console.log(order);
+  console.log(order);
 
   const errors = {};
   if (!isValidPhone(order.phone))
